@@ -1,0 +1,2179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- ============================================
+         PORTFOLIO PAGE FOR SMB WEB DESIGNER
+         Customize all sections marked with "REPLACE"
+         ============================================ -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
+    <title>
+      Professional Website Design for Local Businesses | [YOUR NAME]
+    </title>
+    <meta
+      name="description"
+      content="Websites that bring you more customers. Specializing in restaurants, tradesmen & service businesses. 67+ sites launched. Get your free audit today."
+    />
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "[YOUR BUSINESS NAME]",
+        "image": "[YOUR-HEADSHOT-URL]",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "[YOUR CITY]",
+          "addressRegion": "[YOUR STATE]",
+          "addressCountry": "US"
+        },
+        "telephone": "[YOUR PHONE]",
+        "email": "[YOUR EMAIL]",
+        "url": "[YOUR-WEBSITE-URL]",
+        "priceRange": "$$",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "23"
+        }
+      }
+    </script>
+
+    <style>
+      /* ============================================
+           CUSTOM PROPERTIES & GLOBAL STYLES
+           ============================================ */
+      :root {
+        --primary-color: #1e3a5f; /* Deep Navy - Trust */
+        --secondary-color: #ff6b47; /* Warm Coral - Energy/Creativity */
+        --accent-color: #8fbc8f; /* Soft Sage - Growth */
+        --neutral-light: #f8f9fa;
+        --neutral-dark: #2d3748;
+        --text-color: #4a5568;
+        --white: #ffffff;
+
+        --font-serif: "Playfair Display", Georgia, serif;
+        --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, sans-serif;
+
+        --border-radius: 12px;
+        --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05),
+          0 1px 3px rgba(0, 0, 0, 0.1);
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--font-sans);
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--white);
+        overflow-x: hidden;
+      }
+
+      /* Accessibility: Focus visible */
+      a:focus,
+      button:focus,
+      input:focus,
+      textarea:focus {
+        outline: 3px solid var(--accent-color);
+        outline-offset: 2px;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* ============================================
+           ANIMATION & UTILITY CLASSES
+           ============================================ */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 14px 32px;
+        border-radius: var(--border-radius);
+        font-weight: 600;
+        text-decoration: none;
+        transition: var(--transition);
+        cursor: pointer;
+        border: none;
+        font-size: 1rem;
+      }
+
+      .btn-primary {
+        background: var(--secondary-color);
+        color: var(--white);
+        box-shadow: 0 4px 12px rgba(255, 107, 71, 0.3);
+      }
+
+      .btn-primary:hover {
+        background: #e55a3a;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 107, 71, 0.4);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--primary-color);
+        border: 2px solid var(--primary-color);
+      }
+
+      .btn-secondary:hover {
+        background: var(--primary-color);
+        color: var(--white);
+      }
+
+      /* ============================================
+           LAYOUT & CONTAINER
+           ============================================ */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+        line-height: 1.2;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+      }
+      h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+      }
+      h3 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+      }
+
+      /* ============================================
+           HERO SECTION
+           ============================================ */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(
+          135deg,
+          var(--neutral-light) 0%,
+          var(--white) 100%
+        );
+        position: relative;
+        padding: 120px 0 80px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        align-items: center;
+      }
+
+      .hero-content {
+        text-align: center;
+      }
+
+      .hero-headline {
+        font-size: clamp(2.8rem, 6vw, 4.5rem);
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+        line-height: 1.1;
+      }
+
+      .hero-subheadline {
+        font-size: 1.3rem;
+        color: var(--text-color);
+        margin-bottom: 2rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .trust-indicator {
+        margin-top: 2rem;
+        font-size: 1rem;
+        color: var(--neutral-dark);
+        font-weight: 500;
+      }
+
+      .client-logos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        opacity: 0.7;
+      }
+
+      .client-logos img {
+        height: 40px;
+        width: auto;
+        filter: grayscale(100%);
+        transition: var(--transition);
+      }
+
+      .client-logos img:hover {
+        filter: grayscale(0%);
+        transform: scale(1.1);
+      }
+
+      .hero-image {
+        position: relative;
+        text-align: center;
+      }
+
+      .hero-image img {
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 8px solid var(--white);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        transition: var(--transition);
+      }
+
+      .hero-image img:hover {
+        transform: scale(1.03);
+      }
+
+      /* ============================================
+           ABOUT SECTION
+           ============================================ */
+      .about {
+        background: var(--neutral-light);
+        text-align: center;
+      }
+
+      .about-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .fun-fact {
+        display: inline-block;
+        background: var(--accent-color);
+        color: var(--white);
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-size: 0.95rem;
+        margin-top: 1.5rem;
+        font-weight: 500;
+      }
+
+      /* ============================================
+           SERVICES SECTION
+           ============================================ */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .service-card {
+        background: var(--white);
+        padding: 40px 30px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .service-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: var(--secondary-color);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+
+      .service-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .service-price {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--secondary-color);
+        margin-top: 1rem;
+      }
+
+      /* ============================================
+           PORTFOLIO SECTION
+           ============================================ */
+      .portfolio {
+        background: var(--neutral-light);
+      }
+
+      .portfolio-filters {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 50px;
+        flex-wrap: wrap;
+      }
+
+      .filter-btn {
+        padding: 8px 20px;
+        background: var(--white);
+        border: 2px solid var(--neutral-light);
+        border-radius: 50px;
+        cursor: pointer;
+        transition: var(--transition);
+        font-weight: 500;
+      }
+
+      .filter-btn.active,
+      .filter-btn:hover {
+        background: var(--primary-color);
+        color: var(--white);
+        border-color: var(--primary-color);
+      }
+
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 40px;
+      }
+
+      .portfolio-item {
+        background: var(--white);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--box-shadow);
+        transition: var(--transition);
+      }
+
+      .portfolio-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+      }
+
+      .portfolio-images {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2px;
+        background: var(--neutral-dark);
+      }
+
+      .portfolio-images img {
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .portfolio-images img:hover {
+        transform: scale(1.05);
+      }
+
+      .portfolio-content {
+        padding: 30px;
+      }
+
+      .portfolio-stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin: 20px 0;
+      }
+
+      .stat-box {
+        background: var(--neutral-light);
+        padding: 15px;
+        border-radius: 8px;
+        text-align: center;
+      }
+
+      .stat-number {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--secondary-color);
+        display: block;
+      }
+
+      .stat-label {
+        font-size: 0.85rem;
+        color: var(--text-color);
+      }
+
+      .testimonial-box {
+        background: var(--primary-color);
+        color: var(--white);
+        padding: 20px;
+        border-radius: var(--border-radius);
+        margin: 20px 0;
+        font-style: italic;
+        position: relative;
+      }
+
+      .testimonial-box::before {
+        content: '"';
+        font-size: 4rem;
+        position: absolute;
+        top: -20px;
+        left: 15px;
+        opacity: 0.2;
+      }
+
+      /* ============================================
+           PROCESS SECTION
+           ============================================ */
+      .process-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        margin-top: 50px;
+      }
+
+      .process-step {
+        text-align: center;
+        position: relative;
+      }
+
+      .process-step:not(:last-child)::after {
+        content: "→";
+        position: absolute;
+        top: 40px;
+        right: -30px;
+        font-size: 2rem;
+        color: var(--accent-color);
+        opacity: 0.5;
+      }
+
+      .process-icon {
+        width: 80px;
+        height: 80px;
+        background: var(--secondary-color);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        font-size: 2rem;
+        color: var(--white);
+        transition: var(--transition);
+      }
+
+      .process-step:hover .process-icon {
+        transform: rotate(10deg) scale(1.1);
+        background: var(--primary-color);
+      }
+
+      /* ============================================
+           SOCIAL PROOF SECTION
+           ============================================ */
+      .social-proof {
+        background: var(--primary-color);
+        color: var(--white);
+      }
+
+      .social-proof h2 {
+        color: var(--white);
+      }
+
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .testimonial-card {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 30px;
+        border-radius: var(--border-radius);
+        backdrop-filter: blur(10px);
+        transition: var(--transition);
+      }
+
+      .testimonial-card:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateY(-5px);
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .author-avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--white);
+      }
+
+      .author-info h4 {
+        color: var(--white);
+        margin: 0;
+      }
+
+      .author-info p {
+        margin: 0;
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+        margin-top: 50px;
+        text-align: center;
+      }
+
+      .stat-item {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: var(--border-radius);
+      }
+
+      .stat-item h3 {
+        color: var(--secondary-color);
+        font-size: 2.5rem;
+        margin: 0;
+      }
+
+      .stat-item p {
+        margin: 0;
+        font-size: 0.9rem;
+      }
+
+      /* ============================================
+           PRICING SECTION
+           ============================================ */
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .pricing-card {
+        background: var(--white);
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        overflow: hidden;
+        position: relative;
+        transition: var(--transition);
+      }
+
+      .pricing-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+      }
+
+      .pricing-card.featured {
+        border: 3px solid var(--secondary-color);
+        transform: scale(1.05);
+      }
+
+      .pricing-card.featured:hover {
+        transform: scale(1.05) translateY(-8px);
+      }
+
+      .pricing-header {
+        background: var(--primary-color);
+        color: var(--white);
+        padding: 30px;
+        text-align: center;
+      }
+
+      .featured .pricing-header {
+        background: var(--secondary-color);
+      }
+
+      .pricing-badge {
+        position: absolute;
+        top: 15px;
+        right: -30px;
+        background: var(--secondary-color);
+        color: var(--white);
+        padding: 5px 40px;
+        transform: rotate(45deg);
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .price {
+        font-size: 3rem;
+        font-weight: 700;
+        margin: 10px 0;
+      }
+
+      .price-period {
+        font-size: 1rem;
+        opacity: 0.8;
+      }
+
+      .pricing-features {
+        padding: 30px;
+      }
+
+      .pricing-features ul {
+        list-style: none;
+        margin: 0;
+      }
+
+      .pricing-features li {
+        padding: 10px 0;
+        border-bottom: 1px solid var(--neutral-light);
+        position: relative;
+        padding-left: 30px;
+      }
+
+      .pricing-features li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--accent-color);
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      .pricing-cta {
+        padding: 0 30px 30px;
+        text-align: center;
+      }
+
+      .custom-quote {
+        text-align: center;
+        margin-top: 40px;
+        padding: 20px;
+        background: var(--neutral-light);
+        border-radius: var(--border-radius);
+      }
+
+      /* ============================================
+           FAQ SECTION
+           ============================================ */
+      .faq-item {
+        background: var(--white);
+        margin-bottom: 15px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        overflow: hidden;
+      }
+
+      .faq-question {
+        padding: 20px 30px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: var(--transition);
+      }
+
+      .faq-question:hover {
+        background: var(--neutral-light);
+      }
+
+      .faq-question h3 {
+        margin: 0;
+        font-size: 1.1rem;
+      }
+
+      .faq-icon {
+        font-size: 1.5rem;
+        color: var(--secondary-color);
+        transition: transform 0.3s ease;
+      }
+
+      .faq-item.active .faq-icon {
+        transform: rotate(45deg);
+      }
+
+      .faq-answer {
+        padding: 0 30px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+      }
+
+      .faq-item.active .faq-answer {
+        padding: 0 30px 20px;
+        max-height: 200px;
+      }
+
+      /* ============================================
+           CTA SECTION
+           ============================================ */
+      .cta-section {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          #2c5282 100%
+        );
+        color: var(--white);
+        text-align: center;
+      }
+
+      .cta-section h2 {
+        color: var(--white);
+      }
+
+      .contact-form {
+        max-width: 600px;
+        margin: 40px auto 0;
+        background: var(--white);
+        padding: 40px;
+        border-radius: var(--border-radius);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+        text-align: left;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: var(--primary-color);
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 12px 15px;
+        border: 2px solid var(--neutral-light);
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: var(--transition);
+      }
+
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        border-color: var(--secondary-color);
+      }
+
+      .form-group textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      .urgency-badge {
+        display: inline-block;
+        background: var(--secondary-color);
+        color: var(--white);
+        padding: 10px 25px;
+        border-radius: 50px;
+        font-weight: 600;
+        margin: 20px 0;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .contact-methods {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+      }
+
+      .contact-method {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--white);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .contact-method:hover {
+        color: var(--secondary-color);
+        transform: translateY(-2px);
+      }
+
+      /* ============================================
+           FOOTER
+           ============================================ */
+      footer {
+        background: var(--neutral-dark);
+        color: var(--white);
+        padding: 40px 0;
+        text-align: center;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+
+      .footer-links a {
+        color: var(--white);
+        text-decoration: none;
+        opacity: 0.8;
+        transition: var(--transition);
+      }
+
+      .footer-links a:hover {
+        opacity: 1;
+        color: var(--secondary-color);
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .social-links a {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        transition: var(--transition);
+      }
+
+      .social-links a:hover {
+        background: var(--secondary-color);
+        transform: translateY(-3px);
+      }
+
+      /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+      @media (min-width: 768px) {
+        .hero-grid {
+          grid-template-columns: 1fr 1fr;
+          text-align: left;
+        }
+
+        .hero-content {
+          text-align: left;
+        }
+
+        .trust-indicator {
+          justify-content: flex-start;
+        }
+
+        .client-logos {
+          justify-content: flex-start;
+        }
+
+        .process-step:not(:last-child)::after {
+          display: block;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .pricing-card.featured {
+          order: 2;
+        }
+      }
+
+      /* ============================================
+           LOADING OPTIMIZATION
+           ============================================ */
+      .lazyload {
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .lazyloaded {
+        opacity: 1;
+      }
+
+      /* ============================================
+           ACCESSIBILITY: SKIP LINK
+           ============================================ */
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: var(--primary-color);
+        color: var(--white);
+        padding: 8px;
+        text-decoration: none;
+        border-radius: 0 0 4px 0;
+        z-index: 100;
+      }
+
+      .skip-link:focus {
+        top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Accessibility: Skip to main content -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="hero" id="top">
+      <div class="container">
+        <div class="hero-grid fade-in">
+          <div class="hero-content">
+            <h1 class="hero-headline">Websites That Win You More Customers</h1>
+            <p class="hero-subheadline">
+              I've helped local businesses boost online bookings by 65% and
+              generate 3x more qualified leads in 90 days. Your competitors are
+              getting calls you should be getting.
+            </p>
+            <a href="#contact" class="btn btn-primary"
+              >Get Your Free Website Audit</a
+            >
+
+            <div class="trust-indicator">
+              <p>⭐ Trusted by 67+ Local Businesses</p>
+              <div class="client-logos">
+                <!-- REPLACE with actual client logos -->
+                <img
+                  src="https://via.placeholder.com/120x40/1e3a5f/ffffff?text=Logo1"
+                  alt="Client Logo"
+                  loading="lazy"
+                  class="lazyload"
+                />
+                <img
+                  src="https://via.placeholder.com/120x40/1e3a5f/ffffff?text=Logo2"
+                  alt="Client Logo"
+                  loading="lazy"
+                  class="lazyload"
+                />
+                <img
+                  src="https://via.placeholder.com/120x40/1e3a5f/ffffff?text=Logo3"
+                  alt="Client Logo"
+                  loading="lazy"
+                  class="lazyload"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="hero-image">
+            <!-- REPLACE with your professional headshot -->
+            <img
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+              alt="[YOUR NAME] - Professional Web Designer"
+              loading="lazy"
+              class="lazyload"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main id="main">
+      <!-- ============================================
+             ABOUT SECTION
+             ============================================ -->
+      <section class="about">
+        <div class="container">
+          <div class="about-content fade-in">
+            <h2>Built for Business Owners, Not Tech Gurus</h2>
+            <p>
+              I specialize in building fast, mobile-first websites for
+              restaurants, tradesmen, and service businesses that actually bring
+              in customers. No jargon, no surprises—just results. Based in [YOUR
+              CITY], I've spent 5 years turning underperforming websites into
+              24/7 sales machines.
+            </p>
+            <span class="fun-fact"
+              >Fun Fact: I've eaten at 43 of my restaurant clients'
+              establishments (and counting!)</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================
+             SERVICES SECTION
+             ============================================ -->
+      <section class="services">
+        <div class="container">
+          <h2 style="text-align: center; margin-bottom: 20px">
+            Services That Solve Real Problems
+          </h2>
+          <p style="text-align: center; max-width: 700px; margin: 0 auto 50px">
+            I focus on what matters: getting you more customers and simplifying
+            your operations.
+          </p>
+
+          <div class="services-grid">
+            <!-- Service 1: Conversion-Focused Design -->
+            <div class="service-card fade-in">
+              <h3>🎯 Conversion-Focused Website Design</h3>
+              <p>
+                <strong>Problem:</strong> Your current site looks okay but isn't
+                bringing in calls, bookings, or sales.
+              </p>
+              <p>
+                <strong>Solution:</strong> I redesign with your customer's
+                journey in mind—clear calls-to-action, mobile-first design, and
+                speed optimization that turns visitors into paying customers.
+              </p>
+              <p>
+                <strong>Result:</strong>
+                <strong>More leads, less bounce rate</strong>, and a website
+                that works as hard as you do.
+              </p>
+              <p class="service-price">Starting at <strong>$1,500</strong></p>
+            </div>
+
+            <!-- Service 2: Booking System Integration -->
+            <div class="service-card fade-in">
+              <h3>📅 Online Booking & Reservation Systems</h3>
+              <p>
+                <strong>Problem:</strong> You're wasting hours on phone calls
+                managing appointments while customers want to book online at
+                midnight.
+              </p>
+              <p>
+                <strong>Solution:</strong> Seamless booking integration
+                (OpenTable, Calendly, custom solutions) that automates your
+                schedule and sends you qualified appointments.
+              </p>
+              <p>
+                <strong>Result:</strong>
+                <strong>90% reduction in admin time</strong>, 24/7 booking
+                capability, and fewer no-shows with automated reminders.
+              </p>
+              <p class="service-price">Starting at <strong>$2,200</strong></p>
+            </div>
+
+            <!-- Service 3: Local SEO -->
+            <div class="service-card fade-in">
+              <h3>📍 Local SEO & Google Business Domination</h3>
+              <p>
+                <strong>Problem:</strong> You're invisible on Google Maps while
+                competitors steal all the local search traffic.
+              </p>
+              <p>
+                <strong>Solution:</strong> Complete local SEO overhaul—optimize
+                your Google Business Profile, build local citations, and create
+                location-specific content.
+              </p>
+              <p>
+                <strong>Result:</strong>
+                <strong>Top 3 Google Maps ranking</strong> in 90 days and 3x
+                more "near me" search calls.
+              </p>
+              <p class="service-price">Starting at <strong>$800</strong></p>
+            </div>
+
+            <!-- Service 4: Website Care Plans -->
+            <div class="service-card fade-in">
+              <h3>🛡️ Worry-Free Website Care</h3>
+              <p>
+                <strong>Problem:</strong> Your site breaks, gets hacked, or
+                becomes outdated while you're busy running your business.
+              </p>
+              <p>
+                <strong>Solution:</strong> Monthly maintenance including
+                updates, security, backups, and priority support. I handle the
+                tech; you handle your customers.
+              </p>
+              <p>
+                <strong>Result:</strong> <strong>100% uptime</strong>, peace of
+                mind, and a site that evolves with your business.
+              </p>
+              <p class="service-price">
+                Starting at <strong>$99/month</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================
+             PORTFOLIO SECTION
+             ============================================ -->
+      <section class="portfolio">
+        <div class="container">
+          <h2 style="text-align: center; margin-bottom: 20px">
+            Real Results for Real Businesses
+          </h2>
+          <p style="text-align: center; max-width: 700px; margin: 0 auto 50px">
+            Every project is measured by one metric:
+            <strong>did it make you more money?</strong>
+          </p>
+
+          <div class="portfolio-grid">
+            <!-- Project 1: Restaurant -->
+            <div class="portfolio-item fade-in">
+              <div class="portfolio-images">
+                <img
+                  src="https://via.placeholder.com/400x300/f8f9fa/1e3a5f?text=Before:+Outdated+Design"
+                  alt="Maria's Italian Bistro - Before"
+                  loading="lazy"
+                  class="lazyload"
+                />
+                <img
+                  src="https://via.placeholder.com/400x300/ff6b47/ffffff?text=After:+Modern+Booking+Site"
+                  alt="Maria's Italian Bistro - After"
+                  loading="lazy"
+                  class="lazyload"
+                />
+              </div>
+              <div class="portfolio-content">
+                <h3>Maria's Italian Bistro</h3>
+                <p>
+                  <strong>Challenge:</strong> No online reservation system. 100%
+                  phone bookings during business hours only. 60% of calls went
+                  to voicemail.
+                </p>
+                <p>
+                  <strong>Solution:</strong> Built mobile-first site with
+                  integrated OpenTable system, click-to-call, and menu PDF
+                  downloads.
+                </p>
+                <div class="portfolio-stats">
+                  <div class="stat-box">
+                    <span class="stat-number">65%</span>
+                    <span class="stat-label">More Online Bookings</span>
+                  </div>
+                  <div class="stat-box">
+                    <span class="stat-number">40%</span>
+                    <span class="stat-label">Fewer Phone Calls</span>
+                  </div>
+                </div>
+                <div class="testimonial-box">
+                  "We went from 2-3 online bookings per week to 15-20. My staff
+                  can actually focus on customers instead of answering
+                  reservation calls!"
+                </div>
+                <p style="margin-top: 15px">
+                  <strong>— Maria Santos, Owner</strong>
+                </p>
+                <a href="#" class="btn btn-secondary" style="margin-top: 15px"
+                  >View Live Site →</a
+                >
+              </div>
+            </div>
+
+            <!-- Project 2: Tradesman -->
+            <div class="portfolio-item fade-in">
+              <div class="portfolio-images">
+                <img
+                  src="https://via.placeholder.com/400x300/f8f9fa/1e3a5f?text=Before:+No+Website"
+                  alt="Johnson HVAC - Before"
+                  loading="lazy"
+                  class="lazyload"
+                />
+                <img
+                  src="https://via.placeholder.com/400x300/8fbc8f/ffffff?text=After:+Lead+Gen+Machine"
+                  alt="Johnson HVAC - After"
+                  loading="lazy"
+                  class="lazyload"
+                />
+              </div>
+              <div class="portfolio-content">
+                <h3>Johnson HVAC Services</h3>
+                <p>
+                  <strong>Challenge:</strong> Zero online presence. Relied
+                  entirely on word-of-mouth. Losing jobs to competitors with
+                  websites.
+                </p>
+                <p>
+                  <strong>Solution:</strong> Created lead-generation site with
+                  emergency service CTAs, online quote forms, and customer
+                  review integration.
+                </p>
+                <div class="portfolio-stats">
+                  <div class="stat-box">
+                    <span class="stat-number">25+</span>
+                    <span class="stat-label">Qualified Leads/Month</span>
+                  </div>
+                  <div class="stat-box">
+                    <span class="stat-number">3x</span>
+                    <span class="stat-label">More Service Calls</span>
+                  </div>
+                </div>
+                <div class="testimonial-box">
+                  "Best investment I ever made. The website paid for itself in
+                  the first month. Now I turn down work because I'm booked
+                  solid!"
+                </div>
+                <p style="margin-top: 15px">
+                  <strong>— Mike Johnson, Owner</strong>
+                </p>
+                <a href="#" class="btn btn-secondary" style="margin-top: 15px"
+                  >View Live Site →</a
+                >
+              </div>
+            </div>
+
+            <!-- Project 3: Local Service -->
+            <div class="portfolio-item fade-in">
+              <div class="portfolio-images">
+                <img
+                  src="https://via.placeholder.com/400x300/f8f9fa/1e3a5f?text=Before:+Slow+Non-Mobile"
+                  alt="Bloom Florist - Before"
+                  loading="lazy"
+                  class="lazyload"
+                />
+                <img
+                  src="https://via.placeholder.com/400x300/1e3a5f/ffffff?text=After:+Fast+E-commerce"
+                  alt="Bloom Florist - After"
+                  loading="lazy"
+                  class="lazyload"
+                />
+              </div>
+              <div class="portfolio-content">
+                <h3>Bloom Florist & Gifts</h3>
+                <p>
+                  <strong>Challenge:</strong> Slow, non-mobile site. Customers
+                  couldn't order online. Losing sales to 1-800-Flowers.
+                </p>
+                <p>
+                  <strong>Solution:</strong> Lightning-fast mobile-first site
+                  with e-commerce, same-day delivery calculator, and Instagram
+                  feed integration.
+                </p>
+                <div class="portfolio-stats">
+                  <div class="stat-box">
+                    <span class="stat-number">80%</span>
+                    <span class="stat-label">Mobile Traffic Increase</span>
+                  </div>
+                  <div class="stat-box">
+                    <span class="stat-number">50%</span>
+                    <span class="stat-label">Sales Increase</span>
+                  </div>
+                </div>
+                <div class="testimonial-box">
+                  "I finally have a website that's as beautiful as my
+                  arrangements. Online orders now account for 40% of my
+                  revenue!"
+                </div>
+                <p style="margin-top: 15px">
+                  <strong>— Sarah Chen, Owner</strong>
+                </p>
+                <a href="#" class="btn btn-secondary" style="margin-top: 15px"
+                  >View Live Site →</a
+                >
+              </div>
+            </div>
+
+            <!-- Project 4: Booking System -->
+            <div class="portfolio-item fade-in">
+              <div class="portfolio-images">
+                <img
+                  src="https://via.placeholder.com/400x300/f8f9fa/1e3a5f?text=Before:+Confusing+Schedule"
+                  alt="YogaFlow Studio - Before"
+                  loading="lazy"
+                  class="lazyload"
+                />
+                <img
+                  src="https://via.placeholder.com/400x300/ff6b47/ffffff?text=After:+Seamless+Booking"
+                  alt="YogaFlow Studio - After"
+                  loading="lazy"
+                  class="lazyload"
+                />
+              </div>
+              <div class="portfolio-content">
+                <h3>YogaFlow Studio</h3>
+                <p>
+                  <strong>Challenge:</strong> Confusing class schedule PDF. 20+
+                  calls/day asking "What time is hot yoga?" Manual class
+                  check-ins.
+                </p>
+                <p>
+                  <strong>Solution:</strong> Fully integrated booking system
+                  with class Pass purchases, waitlists, and automated email
+                  reminders.
+                </p>
+                <div class="portfolio-stats">
+                  <div class="stat-box">
+                    <span class="stat-number">90%</span>
+                    <span class="stat-label">Bookings Now Online</span>
+                  </div>
+                  <div class="stat-box">
+                    <span class="stat-number">60%</span>
+                    <span class="stat-label">Less Admin Time</span>
+                  </div>
+                </div>
+                <div class="testimonial-box">
+                  "The booking system freed up 10 hours of my week. Students
+                  love the convenience, and I love not playing phone tag!"
+                </div>
+                <p style="margin-top: 15px">
+                  <strong>— Jennifer Walsh, Founder</strong>
+                </p>
+                <a href="#" class="btn btn-secondary" style="margin-top: 15px"
+                  >View Live Site →</a
+                >
+              </div>
+            </div>
+
+            <!-- Project 5: Portfolio Site -->
+            <div class="portfolio-item fade-in">
+              <div class="portfolio-images">
+                <img
+                  src="https://via.placeholder.com/400x300/f8f9fa/1e3a5f?text=Before:+Generic+Template"
+                  alt="Craftsman Pro - Before"
+                  loading="lazy"
+                  class="lazyload"
+                />
+                <img
+                  src="https://via.placeholder.com/400x300/8fbc8f/ffffff?text=After:+Premium+Portfolio"
+                  alt="Craftsman Pro - After"
+                  loading="lazy"
+                  class="lazyload"
+                />
+              </div>
+              <div class="portfolio-content">
+                <h3>Craftsman Pro Carpentry</h3>
+                <p>
+                  <strong>Challenge:</strong> Generic template site looked like
+                  every other contractor. No portfolio showcase. Slow load
+                  times.
+                </p>
+                <p>
+                  <strong>Solution:</strong> High-end portfolio gallery, project
+                  timeline showcase, instant quote calculator, and speed
+                  optimization.
+                </p>
+                <div class="portfolio-stats">
+                  <div class="stat-box">
+                    <span class="stat-number">3.2s</span>
+                    <span class="stat-label">Load Time (was 8.5s)</span>
+                  </div>
+                  <div class="stat-box">
+                    <span class="stat-number">35%</span>
+                    <span class="stat-label">Higher Quote Requests</span>
+                  </div>
+                </div>
+                <div class="testimonial-box">
+                  "Homeowners now comment on my website before they even mention
+                  my work. It positions me as the premium choice."
+                </div>
+                <p style="margin-top: 15px">
+                  <strong>— David Park, Master Carpenter</strong>
+                </p>
+                <a href="#" class="btn btn-secondary" style="margin-top: 15px"
+                  >View Live Site →</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================
+             PROCESS SECTION
+             ============================================ -->
+      <section class="process">
+        <div class="container">
+          <h2 style="text-align: center; margin-bottom: 20px">
+            Your Zero-Stress Process
+          </h2>
+          <p style="text-align: center; max-width: 700px; margin: 0 auto 50px">
+            No tech headaches. No surprise bills. Just clear timelines and
+            constant communication.
+          </p>
+
+          <div class="process-grid">
+            <div class="process-step fade-in">
+              <div class="process-icon">1</div>
+              <h3>Free Strategy Call</h3>
+              <p>
+                We'll audit your current site, identify revenue leaks, and map
+                out a conversion strategy. No sales pitch—just actionable
+                insights.
+              </p>
+            </div>
+            <div class="process-step fade-in">
+              <div class="process-icon">2</div>
+              <h3>Clear Proposal</h3>
+              <p>
+                You'll get a fixed-price quote, detailed timeline, and mockups
+                within 48 hours. Know exactly what you're getting before you pay
+                a dime.
+              </p>
+            </div>
+            <div class="process-step fade-in">
+              <div class="process-icon">3</div>
+              <h3>Build & Review</h3>
+              <p>
+                Weekly check-ins, live demo link, and 2-3 revision rounds.
+                You'll see progress in real-time, not black-box development.
+              </p>
+            </div>
+            <div class="process-step fade-in">
+              <div class="process-icon">4</div>
+              <h3>Launch & Support</h3>
+              <p>
+                Go live with zero downtime, 30 days of free support, and a
+                training video. I'm here even after launch.
+              </p>
+            </div>
+          </div>
+
+          <p
+            style="
+              text-align: center;
+              margin-top: 40px;
+              font-style: italic;
+              color: var(--text-color);
+            "
+          >
+            "Average project timeline: 2-3 weeks. You'll never be left wondering
+            'what's next?'"
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================================
+             SOCIAL PROOF SECTION
+             ============================================ -->
+      <section class="social-proof">
+        <div class="container">
+          <h2 style="text-align: center">Don't Just Take My Word For It</h2>
+
+          <div class="testimonials-grid">
+            <div class="testimonial-card fade-in">
+              <p style="font-size: 1.1rem; margin-bottom: 20px">
+                "Finally, a web designer who speaks English, not tech jargon.
+                [YOUR NAME] understood my plumbing business better than I did.
+                The online quote form alone has added $4K/month in revenue."
+              </p>
+              <div class="testimonial-author">
+                <!-- REPLACE with client photo -->
+                <img
+                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=60&h=60&fit=crop&crop=face"
+                  alt="Tom Martinez"
+                  class="author-avatar lazyload"
+                />
+                <div class="author-info">
+                  <h4>Tom Martinez</h4>
+                  <p>Owner, Martinez Plumbing</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card fade-in">
+              <p style="font-size: 1.1rem; margin-bottom: 20px">
+                "My bakery went from 5 online orders/week to 40+. The website
+                paid for itself in 2 weeks. Plus, [YOUR NAME] actually answers
+                his phone when I have questions!"
+              </p>
+              <div class="testimonial-author">
+                <img
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=60&h=60&fit=crop&crop=face"
+                  alt="Lisa Thompson"
+                  class="author-avatar lazyload"
+                />
+                <div class="author-info">
+                  <h4>Lisa Thompson</h4>
+                  <p>Owner, Sweet Dreams Bakery</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card fade-in">
+              <p style="font-size: 1.1rem; margin-bottom: 20px">
+                "As a roofing contractor, I was skeptical about 'fancy
+                websites.' But the lead quality is night and day. I'm now booked
+                6 weeks out instead of chasing jobs."
+              </p>
+              <div class="testimonial-author">
+                <img
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=60&h=60&fit=crop&crop=face"
+                  alt="James Wilson"
+                  class="author-avatar lazyload"
+                />
+                <div class="author-info">
+                  <h4>James Wilson</h4>
+                  <p>Owner, Wilson Roofing</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-item fade-in">
+              <h3>67+</h3>
+              <p>Websites Launched</p>
+            </div>
+            <div class="stat-item fade-in">
+              <h3>94%</h3>
+              <p>Client Retention Rate</p>
+            </div>
+            <div class="stat-item fade-in">
+              <h3>4.9/5</h3>
+              <p>Average Rating</p>
+            </div>
+            <div class="stat-item fade-in">
+              <h3>24hr</h3>
+              <p>Response Time</p>
+            </div>
+          </div>
+
+          <p style="text-align: center; margin-top: 40px; opacity: 0.8">
+            As featured in:
+            <!-- REPLACE with actual publications -->
+            <strong style="color: var(--secondary-color)"
+              >Local Business Journal • Web Designer Magazine • [YOUR CITY]
+              Chamber of Commerce</strong
+            >
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================================
+             PRICING SECTION
+             ============================================ -->
+      <section class="pricing">
+        <div class="container">
+          <h2 style="text-align: center; margin-bottom: 20px">
+            Simple, Transparent Pricing
+          </h2>
+          <p style="text-align: center; max-width: 700px; margin: 0 auto 50px">
+            No hidden fees. No "hourly rates" that spiral. Just fixed prices
+            that fit your budget.
+          </p>
+
+          <div class="pricing-grid">
+            <!-- Starter Package -->
+            <div class="pricing-card fade-in">
+              <div class="pricing-header">
+                <h3>Starter</h3>
+                <div class="price">
+                  $1,500
+                  <span class="price-period">one-time</span>
+                </div>
+                <p>Perfect for new businesses or simple sites</p>
+              </div>
+              <div class="pricing-features">
+                <ul>
+                  <li>3-5 Professional Pages</li>
+                  <li>Mobile-First Design</li>
+                  <li>Contact Form & Map</li>
+                  <li>Basic SEO Setup</li>
+                  <li>Social Media Integration</li>
+                  <li>30 Days Free Support</li>
+                  <li>2 Rounds of Revisions</li>
+                </ul>
+              </div>
+              <div class="pricing-cta">
+                <a href="#contact" class="btn btn-secondary">Get Started</a>
+              </div>
+            </div>
+
+            <!-- Professional Package (Most Popular) -->
+            <div class="pricing-card featured fade-in">
+              <span class="pricing-badge">MOST POPULAR</span>
+              <div class="pricing-header">
+                <h3>Professional</h3>
+                <div class="price">
+                  $3,500
+                  <span class="price-period">one-time</span>
+                </div>
+                <p>Ideal for growing businesses ready to scale</p>
+              </div>
+              <div class="pricing-features">
+                <ul>
+                  <li>5-7 Conversion-Optimized Pages</li>
+                  <li>Online Booking/Quote System</li>
+                  <li>Google Business Profile Setup</li>
+                  <li>Local SEO & Schema Markup</li>
+                  <li>Speed Optimization (1-2s load)</li>
+                  <li>Customer Review Integration</li>
+                  <li>Email Newsletter Setup</li>
+                  <li>3 Rounds of Revisions</li>
+                  <li>60 Days Free Support</li>
+                </ul>
+              </div>
+              <div class="pricing-cta">
+                <a href="#contact" class="btn btn-primary"
+                  >Start Your Project</a
+                >
+              </div>
+            </div>
+
+            <!-- Premium Package -->
+            <div class="pricing-card fade-in">
+              <div class="pricing-header">
+                <h3>Premium</h3>
+                <div class="price">
+                  $6,000
+                  <span class="price-period">one-time</span>
+                </div>
+                <p>For established businesses needing advanced features</p>
+              </div>
+              <div class="pricing-features">
+                <ul>
+                  <li>10+ Custom Pages</li>
+                  <li>E-commerce or Membership System</li>
+                  <li>Advanced Booking & Automation</li>
+                  <li>Multi-location SEO Strategy</li>
+                  <li>Custom Integrations (CRM, etc.)</li>
+                  <li>Professional Copywriting</li>
+                  <li>Logo & Branding Refresh</li>
+                  <li>Unlimited Revisions</li>
+                  <li>90 Days Free Support</li>
+                </ul>
+              </div>
+              <div class="pricing-cta">
+                <a href="#contact" class="btn btn-secondary"
+                  >Get Custom Quote</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="custom-quote fade-in">
+            <p style="margin: 0">
+              <strong>Need something unique?</strong> I offer custom quotes for
+              complex projects like multi-location sites, custom apps, or large
+              e-commerce stores.
+            </p>
+            <a href="#contact" class="btn btn-primary" style="margin-top: 15px"
+              >Request Custom Quote</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================
+             WHY CHOOSE ME SECTION
+             ============================================ -->
+      <section class="why-choose-me" style="background: var(--neutral-light)">
+        <div class="container">
+          <h2 style="text-align: center; margin-bottom: 50px">
+            Why Local Businesses Choose Me
+          </h2>
+
+          <div style="max-width: 800px; margin: 0 auto">
+            <ul style="list-style: none">
+              <li
+                style="
+                  padding: 20px 0;
+                  border-bottom: 1px solid var(--neutral-dark);
+                  display: flex;
+                  align-items: center;
+                  gap: 20px;
+                "
+              >
+                <span style="font-size: 2rem; color: var(--secondary-color)"
+                  >🎯</span
+                >
+                <div>
+                  <h3 style="margin: 0">Business-First Design</h3>
+                  <p style="margin: 5px 0 0">
+                    I design for conversions, not just aesthetics. Every button
+                    placement, color choice, and headline is tested to make you
+                    money.
+                  </p>
+                </div>
+              </li>
+              <li
+                style="
+                  padding: 20px 0;
+                  border-bottom: 1px solid var(--neutral-dark);
+                  display: flex;
+                  align-items: center;
+                  gap: 20px;
+                "
+              >
+                <span style="font-size: 2rem; color: var(--secondary-color)"
+                  >⚡</span
+                >
+                <div>
+                  <h3 style="margin: 0">Speed Guarantee</h3>
+                  <p style="margin: 5px 0 0">
+                    Your site will load in under 2 seconds or I'll keep
+                    optimizing for free. Slow sites cost you customers.
+                  </p>
+                </div>
+              </li>
+              <li
+                style="
+                  padding: 20px 0;
+                  border-bottom: 1px solid var(--neutral-dark);
+                  display: flex;
+                  align-items: center;
+                  gap: 20px;
+                "
+              >
+                <span style="font-size: 2rem; color: var(--secondary-color)"
+                  >📞</span
+                >
+                <div>
+                  <h3 style="margin: 0">Actually Responsive</h3>
+                  <p style="margin: 5px 0 0">
+                    24-hour response time guarantee during business hours. Most
+                    clients get a reply in under 2 hours. No ghosting, ever.
+                  </p>
+                </div>
+              </li>
+              <li
+                style="
+                  padding: 20px 0;
+                  display: flex;
+                  align-items: center;
+                  gap: 20px;
+                "
+              >
+                <span style="font-size: 2rem; color: var(--secondary-color)"
+                  >🛡️</span
+                >
+                <div>
+                  <h3 style="margin: 0">Results Guarantee</h3>
+                  <p style="margin: 5px 0 0">
+                    Not happy? I'll revise until you are. I don't consider a
+                    project done until you see a measurable improvement in leads
+                    or sales.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================
+             FAQ SECTION
+             ============================================ -->
+      <section class="faq">
+        <div class="container">
+          <h2 style="text-align: center; margin-bottom: 50px">
+            Questions Business Owners Ask
+          </h2>
+
+          <div style="max-width: 800px; margin: 0 auto">
+            <div class="faq-item fade-in">
+              <div class="faq-question">
+                <h3>How long will my website take?</h3>
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Most projects take 2-3 weeks from kickoff to launch. Simple
+                  3-page sites can be done in 1 week. Complex e-commerce sites
+                  take 4-6 weeks. You'll get a detailed timeline in your
+                  proposal.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item fade-in">
+              <div class="faq-question">
+                <h3>How many revisions do I get?</h3>
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  All packages include 2-3 revision rounds. Most clients nail it
+                  in 1-2 rounds because we agree on the design direction
+                  upfront. Additional revisions are $75 each.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item fade-in">
+              <div class="faq-question">
+                <h3>What are your payment terms?</h3>
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  50% deposit to start, 50% on launch. For projects over $3,000,
+                  I offer 40/30/30 (deposit, midpoint, launch). I accept credit
+                  cards, ACH, or checks.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item fade-in">
+              <div class="faq-question">
+                <h3>What if I don't like the design?</h3>
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  I won't let that happen. We start with a detailed
+                  questionnaire and mockups you approve before I write a single
+                  line of code. If you're still not satisfied, I offer a 100%
+                  money-back guarantee within the first 7 days.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item fade-in">
+              <div class="faq-question">
+                <h3>What happens after launch? Do you offer support?</h3>
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Every project includes 30-90 days of free support (depending
+                  on package). After that, I offer Website Care Plans starting
+                  at $99/month covering updates, security, backups, and priority
+                  support. Or you can manage it yourself—no vendor lock-in.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================
+             FINAL CTA SECTION
+             ============================================ -->
+      <section class="cta-section" id="contact">
+        <div class="container">
+          <h2 style="color: var(--white); margin-bottom: 20px">
+            Ready for a Website That Actually Works for Your Business?
+          </h2>
+          <p
+            style="
+              font-size: 1.2rem;
+              margin-bottom: 30px;
+              color: rgba(255, 255, 255, 0.9);
+            "
+          >
+            Get a free 15-minute website audit. I'll record a video showing you
+            exactly what's costing you customers.
+          </p>
+
+          <span class="urgency-badge"
+            >⚡ I take on 3 new clients per month. 2 spots left for
+            November.</span
+          >
+
+          <form
+            class="contact-form"
+            action="https://formspree.io/f/[YOUR_FORM_ID]"
+            method="POST"
+          >
+            <div class="form-group">
+              <label for="name">Your Name *</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="business">Business Name</label>
+              <input type="text" id="business" name="business" />
+            </div>
+            <div class="form-group">
+              <label for="project-type">Project Type *</label>
+              <select id="project-type" name="project-type" required>
+                <option value="">Select your project...</option>
+                <option value="restaurant">Restaurant Website</option>
+                <option value="tradesman">Tradesman/Contractor Site</option>
+                <option value="booking">Booking/Reservation System</option>
+                <option value="ecommerce">E-commerce Store</option>
+                <option value="redesign">Website Redesign</option>
+                <option value="seo">SEO Optimization</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="budget">Budget Range</label>
+              <select id="budget" name="budget">
+                <option value="">Select your budget...</option>
+                <option value="1500">$1,500 - Starter</option>
+                <option value="3500">$3,500 - Professional</option>
+                <option value="6000">$6,000 - Premium</option>
+                <option value="custom">Custom Quote</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Tell Me About Your Business & Goals *</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="What's your biggest website challenge right now?"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%">
+              Send My Free Audit &raquo;
+            </button>
+          </form>
+
+          <div class="contact-methods">
+            <a href="tel:[YOUR_PHONE]" class="contact-method">
+              <span style="font-size: 1.5rem">📞</span>
+              <span>[YOUR PHONE]</span>
+            </a>
+            <a href="mailto:[YOUR_EMAIL]" class="contact-method">
+              <span style="font-size: 1.5rem">✉️</span>
+              <span>[YOUR EMAIL]</span>
+            </a>
+            <a
+              href="https://calendly.com/[YOUR_CALENDLY]"
+              class="contact-method"
+              target="_blank"
+            >
+              <span style="font-size: 1.5rem">📅</span>
+              <span>Schedule a Call</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer>
+      <div class="container">
+        <div class="footer-links">
+          <a href="#services">Services</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#contact">Contact</a>
+          <a href="#">Privacy Policy</a>
+        </div>
+
+        <p style="margin: 0; opacity: 0.8">
+          &copy; 2024 [YOUR BUSINESS NAME]. All rights reserved.
+        </p>
+
+        <div class="social-links">
+          <!-- REPLACE with your actual social links -->
+          <a href="#" aria-label="LinkedIn">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+              />
+            </svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+              />
+            </svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ============================================
+         JAVASCRIPT
+         ============================================ -->
+    <script>
+      // ============================================
+      // CUSTOMIZATION INSTRUCTIONS
+      // ============================================
+      // 1. Replace ALL [YOUR_XXX] placeholders with your actual info
+      // 2. Replace placeholder images with your own photos/screenshots
+      // 3. Update portfolio project details with your real work
+      // 4. Connect form to your email service (Formspree, Netlify Forms, etc.)
+      // 5. Test all links and forms before going live
+      // 6. Add your actual client logos in the hero section
+      // 7. Update the urgency badge monthly ("X spots left")
+
+      // ============================================
+      // SCROLL ANIMATIONS
+      // ============================================
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".fade-in").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // ============================================
+      // FAQ ACCORDION
+      // ============================================
+      document.querySelectorAll(".faq-question").forEach((question) => {
+        question.addEventListener("click", () => {
+          const faqItem = question.parentElement;
+          const isActive = faqItem.classList.contains("active");
+
+          // Close all other FAQs
+          document.querySelectorAll(".faq-item").forEach((item) => {
+            item.classList.remove("active");
+          });
+
+          // Toggle current FAQ
+          if (!isActive) {
+            faqItem.classList.add("active");
+          }
+        });
+      });
+
+      // ============================================
+      // SMOOTH SCROLL FOR ANCHOR LINKS
+      // ============================================
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // ============================================
+      // UPDATE URGENCY BADGE
+      // ============================================
+      // Automatically update spots left (optional)
+      const spotsLeft = Math.max(1, 3 - (new Date().getDate() % 5)); // Example logic
+      const urgencyBadge = document.querySelector(".urgency-badge");
+      if (urgencyBadge) {
+        urgencyBadge.innerHTML = `⚡ I take on 3 new clients per month. ${spotsLeft} spot${
+          spotsLeft > 1 ? "s" : ""
+        } left for ${new Date().toLocaleDateString("en-US", {
+          month: "long",
+        })}.`;
+      }
+
+      // ============================================
+      // FORM SUBMISSION HANDLING
+      // ============================================
+      const contactForm = document.querySelector(".contact-form");
+      if (contactForm) {
+        contactForm.addEventListener("submit", (e) => {
+          // Add loading state
+          const submitBtn = contactForm.querySelector('button[type="submit"]');
+          const originalText = submitBtn.innerHTML;
+          submitBtn.innerHTML = "Sending...";
+          submitBtn.disabled = true;
+
+          // Note: You'll need to connect this to an actual form service
+          // Options: Formspree, Netlify Forms, EmailJS, or custom backend
+          console.log("Form submitted! Connect to your form service.");
+
+          // After 2 seconds, show success (remove this in production)
+          setTimeout(() => {
+            alert(
+              "Thanks! I'll review your info and send your free audit within 24 hours."
+            );
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+          }, 2000);
+        });
+      }
+
+      // ============================================
+      // LAZY LOADING ENHANCEMENT
+      // ============================================
+      // Add fade-in effect when images load
+      if ("IntersectionObserver" in window) {
+        const imageObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              img.classList.add("lazyloaded");
+              imageObserver.unobserve(img);
+            }
+          });
+        });
+
+        document.querySelectorAll(".lazyload").forEach((img) => {
+          imageObserver.observe(img);
+        });
+      }
+
+      // ============================================
+      // TRACK USER SCROLL (for analytics)
+      // ============================================
+      let scrolled = false;
+      window.addEventListener("scroll", () => {
+        if (!scrolled && window.scrollY > 100) {
+          scrolled = true;
+          // Trigger analytics event
+          console.log("User scrolled - engaged");
+        }
+      });
+    </script>
+  </body>
+</html>
